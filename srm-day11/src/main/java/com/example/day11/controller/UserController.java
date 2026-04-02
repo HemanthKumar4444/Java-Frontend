@@ -76,8 +76,8 @@ public class UserController {
     }
     
     @GetMapping("/emails")
-    public JsonResponse<List<String>>findAllEmails(){
-        List<String>data=service.findAllEmails();
+    public JsonResponse<List<String>>findAllEmails(@RequestParam(defaultValue="0") int page,@RequestParam(defaultValue = "10")int size ){
+        List<String>data=service.findAllEmails(page,size);
         return new JsonResponse<>(true,data,null);
     }
 }
